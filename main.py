@@ -451,7 +451,7 @@ def callback(call):
                 bot.register_next_step_handler(call.message, procces_number_client, name_product)
             else:
                 bot.send_message(call.message.chat.id, text='Замовлення готово, с вами зв\'яжется продавець 💌')
-                bot.send_message(318952676, text=f'🛍 Клієнт @{username} зробив замовлення 🛍\n{name_product}')
+                bot.send_message('''ID юзера, кому будут приходить смс''', text=f'🛍 Клієнт @{username} зробив замовлення 🛍\n{name_product}')
         except Exception as e:
             print(e)
             bot.answer_callback_query(callback_query_id=call.id, text='Щось пішло не так, спробуйте ще раз👁‍🗨')
@@ -729,7 +729,7 @@ def procces_number_client(message, name_product):
     try:
         number = message.text
         bot.send_message(message.chat.id, text='Замовлення готово, з вами зв\'яжется продавець 💌')
-        bot.send_message(318952676, text=f'🛍 Клієнт +38{number} зробив замовлення 🛍\n{name_product}')
+        bot.send_message('''ID юзера, кому будут приходить смс''', text=f'🛍 Клієнт +38{number} зробив замовлення 🛍\n{name_product}')
     except:
         bot.send_message(message.chat.id, text='Что-то пошло не так, попробуйте ещё раз👁‍🗨')
 
